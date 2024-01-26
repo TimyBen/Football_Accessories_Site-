@@ -1,6 +1,6 @@
 const express = require('express');
 const config = require('./config');
-
+const cors = require('cors');
 const userRoute = require('./routes/userRoute');
 const cartRoute = require('./routes/cartRoute');
 const cartItemRoute = require('./routes/cartItemRoute');
@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-
+app.use(cors());
 
 // Middleware
 app.use(express.json());
