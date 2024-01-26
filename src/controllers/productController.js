@@ -4,6 +4,7 @@ const productService = require('../models/productModel');
 const getAllProducts = async (req, res) => {
   try {
     const products = await productService.getAllProducts();
+    console.log('Products:', products);
     res.json(products);
   } catch (error) {
     console.error('Error getting products:', error);

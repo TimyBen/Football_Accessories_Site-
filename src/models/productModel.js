@@ -2,14 +2,14 @@ const db = require('../services/dbServices');
 
 // Get all products
 const getAllProducts = async () => {
-    const query = 'SELECT * FROM public.products';
+    const query = 'SELECT name, price, description FROM products';
     const result = await db.query(query);
     return result.rows;
 };
 
 // Get a single product by ID
 const getProductById = async (productId) => {
-    const query = 'SELECT * FROM public.products WHERE product_id = $1';
+    const query = 'SELECT name, description, price FROM products WHERE product_id = $1';
     const result = await db.query(query, [productId]);
     return result.rows[0];
 };
