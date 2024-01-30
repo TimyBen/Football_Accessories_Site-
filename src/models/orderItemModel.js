@@ -1,9 +1,9 @@
 // order item model
 const db = require('../services/dbServices');
 
-const getOrderItemsByOrderId = async (orderId) => {
-  const query = 'SELECT * FROM order_items WHERE order_id = $1';
-  const result = await db.query(query, [orderId]);
+const getOrderItemsByOrderId = async () => {
+  const query = 'SELECT * FROM order_item';
+  const result = await db.query(query, []);
   return result.rows;
 };
 

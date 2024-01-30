@@ -48,23 +48,23 @@ const SignUpPage = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100" >
-            <div className='fixed blur-[2px] w-full h-full ' style={{ backgroundImage: `url(${require('../assets/soccer-cleats.jpeg')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+            <div className='fixed blur-[2px] w-full h-full ' style={{ backgroundImage: `url(${require('../assets/cleat.webp')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
             <header className='w-full bg-transparent text-gray-800 fixed top-0 h-36 z-10'>
                 <div className='h-24 flex justify-between items-center'>
                     <div className='w-full'>
-                        <div className='flex justify-center items-center mt-16 flex-grow'>
-                            <a href="/" className="text-[90px] font-bold transition-transform duration-300 text-center text-gray-100 hover:transform hover:scale-110 mb-5 flex justify-center items-center gap-2">Pro Gear <div className='w-24 h-24' style={{ backgroundImage: `url(${require('../assets/mainimg.png')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div> Hub</a>
+                        <div className='flex justify-center items-center mt-12 flex-grow'>
+                            <a href="/" className="text-[70px] font-bold transition-transform duration-300 text-center text-gray-800 rounded-md border-b-2 border-t-2 border-white mt-8 hover:transform hover:scale-110 mb-5 flex justify-center items-center gap-2">Pro Gear <div className='w-20 h-20' style={{ backgroundImage: `url(${require('../assets/mainimg.png')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div> Hub</a>
                         </div>
                     </div>
-                    <div className='absolute right-8 top-8 '>
-                        <div>
+                    <div className='absolute left-8 top-16'>
+                        <div >
                             <Sidebar />
                         </div>
                     </div>
                 </div>
             </header>
-            <div className="bg-rose-400 bg-opacity-80 p-8 rounded z-10 shadow-md mt-24 w-96">
-                <h2 className="text-2xl text-gray-200 font-bold mb-6">Sign Up</h2>
+            <div className="bg-gray-800 bg-opacity-80 p-8 rounded z-10 shadow-md mt-36 w-96">
+                <h2 className="text-2xl text-gray-100 font-bold mb-6">Sign Up</h2>
                 <Formik
                     initialValues={initialValues}
                     validationSchema={SignUpSchema}
@@ -81,7 +81,7 @@ const SignUpPage = () => {
                                 name="full_name"
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
                             />
-                            <ErrorMessage name="full_name" component="div" className="text-red-500 text-xs mt-1" />
+                            <ErrorMessage name="full_name" component="div" className="text-white text-xs mt-1" />
                         </div>
 
                         <div className="mb-4">
@@ -139,7 +139,7 @@ const SignUpPage = () => {
                         <button
                             type="submit"
                             href='/login'
-                            className="bg-red-700 bg-opacity-40 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            className="bg-gray-900 bg-opacity-40 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         >
                             <a href="/login" class="block text-gray-200  transition-transform duration-300 hover:transform hover:scale-110 hover:bg-gray-50 dark:text-gray-100 md:dark:hover:text-gray-100 dark:hover:bg-gray-100 dark:hover:text-gray-100 md:dark:hover:bg-transparent dark:border-gray-100">Sign Up</a>
                         </button>
