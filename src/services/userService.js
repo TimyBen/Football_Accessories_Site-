@@ -9,6 +9,10 @@ const updateLastSigninTime = async (userId, lastSigninTime) => {
     return await userModel.updateLastSigninTime(userId, lastSigninTime);
 };
 
+const createUser = async (userData) => {
+    return await userModel.createUser(userData);
+};
+
 module.exports = {
     getUserByUsername,
     updateLastSigninTime,

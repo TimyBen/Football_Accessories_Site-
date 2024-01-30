@@ -2,7 +2,7 @@ const db = require('../services/dbServices');
 
 // Get all products
 const getAllProducts = async () => {
-    const query = 'SELECT name, price, description FROM products';
+    const query = 'SELECT * FROM products';
     const result = await db.query(query);
     return result.rows;
 };

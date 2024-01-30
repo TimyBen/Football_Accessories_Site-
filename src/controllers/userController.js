@@ -24,7 +24,7 @@ const signup = async (req, res) => {
 
     try {
         // Check if the username already exists
-        const existingUser = await userModelModel.getUserByUsername(username);
+        const existingUser = await userModel.getUserByUsername(username);
         if (existingUser) {
             return res.status(400).json({ error: 'Username already exists' });
         }
@@ -33,7 +33,7 @@ const signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Create a new user with additional information
-        const newUser = await authModel.createUser({
+        const newUser = await userModel.createUser({
             full_name,
             username,
             password: hashedPassword,
@@ -52,7 +52,7 @@ const signup = async (req, res) => {
 };
 
 const login = async (req, res) => {
-    const { username, password, last_signin_time } = req.body;
+    const { username, password } = req.body;
 
     try {
         const user = await userModel.getUserByUsername(username);
@@ -70,7 +70,9 @@ const login = async (req, res) => {
 
                         // Record the last sign-in time
                         const lastSigninTime = new Date();
-                        console.log(lastSigninTime)
+                        console.log(lastSigninTime);
+
+                        // Update last_signin_time in the database
                         await userModel.updateLastSigninTime(user.id, lastSigninTime);
 
                         res.json({ token, username, lastSigninTime });
@@ -89,6 +91,7 @@ const login = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
 
 const updateLastSigninTime = async (req, res) => {
     const userId = req.user.user_id; // Assuming you have the user ID in req.user

@@ -8,6 +8,7 @@ const orderRoute = require('./routes/orderRoute');
 const orderItemRoute = require('./routes/orderItemRoute');
 const productRoute = require('./routes/productRoute');
 const bodyParser = require('body-parser');
+const signUp = require('./routes/signupRoute'); // Assuming signupRoute is the correct route for signup
 
 const app = express();
 
@@ -19,14 +20,12 @@ app.use(bodyParser.json());
 
 // Routes
 app.use(userRoute);
+app.use(signUp); // Assuming signupRoute is the correct route for signup
 app.use(cartRoute);
 app.use(cartItemRoute);
 app.use(orderRoute);
 app.use(orderItemRoute);
 app.use(productRoute);
-// app.use('/auth', authRoutes);
-// app.use('/auth', signupRoutes);
-// app.use('/products', productRoutes);
 
 // Start the server
 const PORT = config.port || 4000;
